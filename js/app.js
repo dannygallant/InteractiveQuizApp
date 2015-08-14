@@ -61,18 +61,23 @@ $("#takeQuiz").on("click", "#startButton", function () {
     $("#submit_answer").css("display", "inline")
 });
 
-
-
-
 $("#submit_answer").on("click", "#submitButton", function () {
-    updateCounter();
-    // updateCounterArt();
+    updateCounterGuitar();
+    updateCounterArtist();
     currentQuestion++;
     // nextQuestion();
 });
 
+
+function updateCounterGuitar() {
+	$('input[type=radio]').each(function () {
+        if (this.checked) {
+            console.log($(this).val()); 
+        }
+});
+}
  
-function updateCounter() {
+function updateCounterArtist() {
 	$('input[type=checkbox]').each(function () {
         if (this.checked) {
             console.log($(this).val()); 
