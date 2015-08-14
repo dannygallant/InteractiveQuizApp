@@ -73,6 +73,10 @@ ul.center {
 	display: none;
 }
 
+#next_question {
+	display: none;
+}
+
 /*#introMessage {
 	display: none;
 }

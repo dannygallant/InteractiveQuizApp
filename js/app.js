@@ -64,35 +64,55 @@ $("#takeQuiz").on("click", "#startButton", function () {
 $("#submit_answer").on("click", "#submitButton", function () {
     updateCounterGuitar();
     updateCounterArtist();
+    displayInfo();
     currentQuestion++;
+    $("#submit_answer").css("display","none");
+    $("#next_question").css("display","inline");
     // nextQuestion();
 });
 
+$("#next_question").on("click", "#nextButton", function () {
+
+//  add logic to change questions, photo, etc to the next element in the array. 
+//  be sure to check that we are not at the end of the list of questions.
+
+}
+
 
 function updateCounterGuitar() {
-	$('input[type=radio]').each(function () {
-        if (this.checked) {
-            console.log($(this).val()); 
-        }
-});
-}
+	var answer = $('input[type=radio]:checked').val();
+	console.log(answer)
+	if (answer == questions[currentQuestion].guitarAnswer) {
+		correctAnswers++;
+		console.log(correctAnswers);		// ==== For testing  ====
+	} else {console.log(correctAnswers);}   // ==== For testing  ====
+
+    }
+
+
+// =====  used for testing. Don't need to loop through and use if statement with radios  =====
+// function updateCounterGuitar() {
+// 	$('input[type=radio]').each(function () {
+//         if (this.checked) {
+//             console.log($(this).val()); 
+//         }
+// });
+// }
  
+
 function updateCounterArtist() {
 	$('input[type=checkbox]').each(function () {
         if (this.checked) {
             console.log($(this).val()); 
         }
-})
-
-
-
-	// var answerGit = $("#answerChoicesGit input[type='checkbox']:checked").val();
-	// console.log(answerGit);
-
+	})
 };
 
 
+function displayInfo() {
+	$("#info").css("display", "inline")
 
+}
 	
 
 
