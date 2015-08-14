@@ -57,6 +57,33 @@ ul.center {
 
 /* ========= End of Nav bar styling ========= */
 
+#questionContainer {
+	display: none;
+}
+
+#submit_answer {
+	display: none;
+}
+
+#info {
+	display: none;
+}
+
+#results {
+	display: none;
+}
+
+/*#introMessage {
+	display: none;
+}
+
+#submit_takeQuiz {
+	display: none;
+}*/
+
+
+
+
 .button {
 	background-color: #567;
 }
@@ -71,6 +98,13 @@ ul.center {
 	color: red;
 	font-weight: bold;
 }
+
+#info {
+	display: ;
+}
+
+
+
 
 
 .footer p {

@@ -6,7 +6,7 @@
 	<title>Guitar Quiz</title>
 	<link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/foundation.css" />
-
+    <!-- app.css is used to overide styling from foundation.css -->
     <link rel="stylesheet" href="css/app.css">
     <script src="js/vendor/modernizr.js"></script>
 </head>
@@ -42,11 +42,27 @@
 
 <br><br>
 
-<ul class="small-block-grid-5">	
+<div class="row" id="introMessage">
+  <div class="small-2 large-4 columns"><center><img class="th" src="img/strat_border_smaller.gif"></center></div>
+  <div class="small-4 large-4 columns"><center><H4>How well do you know your guitars?</H4></center></div>
+  <div class="small-6 large-4 columns"><center><img class="th" src="img/les_paul_border_smaller.gif"></center></div>
+</div>
+
+<br>
+
+<div class="row" id="takeQuiz">
+  <div class="small-12 large-12 columns text-center">
+    <input type="button" class="button small round" id="startButton" value="Take the Quiz!">
+  </div>  
+
+  <!-- <div class="small-12 large-12 columns text-center"><a href="#" class="button small round" id="startButton">Take the Quiz!</a></div> -->
+</div>
+
+<ul class="small-block-grid-5" id="questionContainer">	
   <li></li>
   <li>
 	<span class="question"><h4>Which guitar is this?</h4></span><br>
-		<div id="answer_choices">
+		<div id="answerChoicesGit">
 			<input type="checkbox" name="option" class="option" value="0"><span class="answer"> Fender Stratocaster</span><br>
 			<input type="checkbox" name="option" class="option" value="1"><span class="answer"> Gibson Les Paul</span><br>
 			<input type="checkbox" name="option" class="option" value="2"><span class="answer"> Gibson ES-335</span><br>
@@ -59,7 +75,7 @@
   
   <li>
   	<span class="question"><h4>Who plays this guitar?</h4></span><br>
-			<div id="answer_choices">
+			<div id="answerChoicesArt">
 				<input type="checkbox" name="option" class="option" value="5"><span class="answer"> Eric Clapton</span><br>
 				<input type="checkbox" name="option" class="option" value="6"><span class="answer"> Carlos Santana</span><br>
 				<input type="checkbox" name="option" class="option" value="7"><span class="answer"> Steve Vai</span><br>
@@ -71,22 +87,30 @@
   <li></li>
 </ul>
 
-<br><br>
+<br>
 
-<div class="row submit_answer">
-  <div class="small-12 large-12 columns text-center"><a href="#" class="button small round" id="submitButton">Submit Answer</a></div>
+<div class="row" id="submit_answer">
+  <div class="small-12 large-12 columns text-center">
+    <input type="button" class="button small round" id="submitButton" value="Submit Answer">
+  </div>  
 </div>
 
 <br>
 
 <div class="row"> 
-  <div class="small-4 small-centered columns" id="results">
+  <div class="small-4 columns" id="info">
+    <p>The Fender Stratocaster is one of the world's most popular guitars. It's used in many musical genres. Eric Clapton transitioned from Gibson guitars to the Stratocaster in late 1969.</p>
+  </div>
+  <div class="small-4 columns">
+  </div>
+  <div class="small-4 columns" id="results">
+       <!-- small-centered -->
   	<center><p>Correct answers: 0</p></center>
   	<center><p>Completed: 0%</p></center>
   </div>  
 </div>
 
-<br><br>
+<br>
 
 <div class="footer">
 	<p>&copy; 2015 - Danny Gallant. All rights reserved</p>

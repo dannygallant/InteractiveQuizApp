@@ -47,12 +47,71 @@ $(document).ready(function() {
         }]
 
 
-} // document ready end bracket
+ // document ready end bracket
 
   
 
+var currentQuestion = 0;
+var correctAnswers = 0;
+
+$("#takeQuiz").on("click", "#startButton", function () {
+    $("#introMessage").css("display","none");
+    $("#takeQuiz").css("display","none");
+    $("#questionContainer").css("display", "inline");
+    $("#submit_answer").css("display", "inline")
+});
 
 
+
+
+$("#submit_answer").on("click", "#submitButton", function () {
+    updateCounter();
+    // updateCounterArt();
+    currentQuestion++;
+    // nextQuestion();
+});
+
+ 
+function updateCounter() {
+	$('input[type=checkbox]').each(function () {
+        if (this.checked) {
+            console.log($(this).val()); 
+        }
+})
+
+
+
+	// var answerGit = $("#answerChoicesGit input[type='checkbox']:checked").val();
+	// console.log(answerGit);
+
+};
+
+
+
+	
+
+
+
+
+
+
+// function updateCounter() {
+// 	var answer = $("input[type='checkbox']:checked").val();
+//         if (answer == questions[currentQuestion].guitarAnswer) {
+//             correctAnswers++;    
+//         }
+// }
+
+// function updateCounterArt() {
+
+// 	var answer = $("input[type='checkbox']:checked").val();
+//         if (answer == questions[currentQuestion].artistAnswer) {
+//             correctAnswers++;    
+//         }
+// }
+
+
+});
 
 
 
