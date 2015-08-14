@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Guitar Quiz</title>
+	<link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/foundation.css" />
+
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/vendor/modernizr.js"></script>
+</head>
+
+<body>
+
+
+<!-- ==== Will probably use a nav bar instead of this ===== -->
+
+<!-- <div class="row title">
+  <div class="small-2 large-4 columns">...</div>
+  <div class="small-12 large-12 columns text-center"><H1>Guitar Quiz</H1></div>
+  <div class="small-2 large-4 columns">...</div> 
+</div> --> 
+
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">Guitar Quiz</a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <!-- <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li> -->
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li><a href="#">Help</a></li>
+      <li><a href="#">Reset Game</a></li>
+    </ul>
+  </section>
+</nav>
+
+<br><br>
+
+<ul class="small-block-grid-5">	
+  <li></li>
+  <li>
+	<span class="question"><h4>Which guitar is this?</h4></span><br>
+		<div id="answer_holder_1">
+			<input type="checkbox" name="option" class="option" value="0"><span class="answer"> Fender Stratocaster</span><br>
+			<input type="checkbox" name="option" class="option" value="1"><span class="answer"> Gibson Les Paul</span><br>
+			<input type="checkbox" name="option" class="option" value="2"><span class="answer"> Gibson ES-335</span><br>
+			<input type="checkbox" name="option" class="option" value="3"><span class="answer"> Gretsch White Falcon</span><br>
+			<input type="checkbox" name="option" class="option" value="4"><span class="answer"> Fender Jazzmaster</span><br>
+		</div>
+  </li>
+ 
+  <li><center><img class="th" src="img/strat_border_smaller.gif"></center></li>
+  
+  <li>
+  	<span class="question"><h4>Who plays this guitar?</h4></span><br>
+			<div id="answer_holder_2">
+				<input type="checkbox" name="option" class="option" value="0"><span class="answer"> Eric Clapton</span><br>
+				<input type="checkbox" name="option" class="option" value="1"><span class="answer"> Carlos Santana</span><br>
+				<input type="checkbox" name="option" class="option" value="2"><span class="answer"> Steve Vai</span><br>
+				<input type="checkbox" name="option" class="option" value="3"><span class="answer"> Frank Zappa</span><br>
+				<input type="checkbox" name="option" class="option" value="4"><span class="answer"> None of the above</span><br>
+			</div>
+
+  </li>
+  <li></li>
+</ul>
+
+<br><br>
+
+<div class="row submit_answer">
+  <div class="small-12 large-12 columns text-center"><a href="#" class="button small round">Submit Answer</a></div>
+</div>
+
+<br>
+
+<div class="row"> 
+  <div class="small-4 small-centered columns" id="results">
+  	<center><p>Correct answers: 0</p></center>
+  	<center><p>Completed: 0%</p></center>
+  </div>  
+</div>
+
+<br><br>
+
+<div class="footer">
+	<p>&copy; 2015 - Danny Gallant. All rights reserved</p>
+</div>
+
+
+
+<!-- ==== Probably will drop this idea ==== -->
+
+<!-- <ul class="small-block-grid-3">
+  <li><img class="th" src="img/les_paul_border_small.gif"></li>
+  <li>Your content goes here</li>
+  <li><img class="th" src="img/strat_border_small.gif"></li>
+</ul> -->
+
+<!-- <div class="container">
+
+	<div class="title">
+		<p>Guitar Quiz</p>
+	</div> 
+
+
+</div> -->
+
+
+<!-- <script src="js/vendor/jquery.js"></script>   -->
+<!-- <script src="js/app.js"></script>  -->
+
+</body>
+</html>
