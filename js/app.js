@@ -69,13 +69,15 @@ $("#takeQuiz").on("click", "#startButton", function () {
 });
 
 $("#submit_answer").on("click", "#submitButton", function () {
-    updateCounterGuitar();
-    updateCounterArtist();
-    $("#submit_answer").css("display","none");
-    displayInfo();
-    updateResultsCounter();
-    $("#next_question").css("display","inline");
-    // $("#info").css("display","inline");
+	if (testRadios()) {
+		updateCounterGuitar();
+    	updateCounterArtist();	  
+    	$("#submit_answer").css("display","none");
+    	displayInfo();
+    	updateResultsCounter();
+    	$("#next_question").css("display","inline");
+    	// $("#info").css("display","inline");
+    }
 });
 
 
@@ -90,6 +92,24 @@ $("#next_question").on("click", "#nextButton", function () {
 		gameStatus();	
 });
 
+//  =====  Might be testing that both questions have answers  =====
+
+function testRadios() {
+	var answerGit = $("input:radio[name='option']:checked").val();	
+	var answerArt = $("input:radio[name='option2']:checked").val();
+	console.log(answerGit);
+	console.log(answerArt);
+
+	if (answerGit == undefined || answerArt == undefined){
+		// console.log("please make a selection for each question.");
+		$("#helpModal").foundation('reveal', 'open');
+	} else if (answerGit != undefined && answerArt != undefined) {
+		return true;
+	};
+
+}
+
+
 function populateQuestionaire() {
 	var newQuestion = '<li></li><li><span class="question"><h4>Which guitar is this?</h4></span><br><div id="answerChoicesGit"><input type="radio" name="option" class="option" value="0"><span class="answer"> ' +questions[currentQuestion].guitarChoices[0]+ '</span><br><input type="radio" name="option" class="option" value="1"><span class="answer"> ' +questions[currentQuestion].guitarChoices[1]+ '</span><br><input type="radio" name="option" class="option" value="2"><span class="answer"> ' +questions[currentQuestion].guitarChoices[2]+ '</span><br><input type="radio" name="option" class="option" value="3"><span class="answer"> ' +questions[currentQuestion].guitarChoices[3]+ '</span><br><input type="radio" name="option" class="option" value="4"><span class="answer"> ' +questions[currentQuestion].guitarChoices[4]+ '</span><br></div></li><li><center><img class="th" src=" ' +questions[currentQuestion].pic+ ' "></center></li><li><span class="question"><h4>Who plays this guitar?</h4></span><br><div id="answerChoicesArt"><input type="radio" name="option2" class="option2" value="0"><span class="answer"> ' +questions[currentQuestion].artistChoices[0]+ '</span><br><input type="radio" name="option2" class="option2" value="1"><span class="answer"> ' +questions[currentQuestion].artistChoices[1]+ '</span><br><input type="radio" name="option2" class="option2" value="2"><span class="answer"> ' +questions[currentQuestion].artistChoices[2]+ '</span><br><input type="radio" name="option2" class="option2" value="3"><span class="answer"> ' +questions[currentQuestion].artistChoices[3]+ '</span><br><input type="radio" name="option2" class="option2" value="4"><span class="answer"> ' +questions[currentQuestion].artistChoices[4]+ '</span><br></div></li><li></li>';
 	$("#questionContainer").html(newQuestion);
@@ -102,7 +122,7 @@ function populateQuestionaire() {
 // 	$("#info").css("display", "inline");
 // }
 
-// ====  Display answer in a modal  ====
+// ====  Display answers in a modal  ====
 
 function displayInfo() {
 	var newInfo2 = '<h2 id="modalTitle">' +questions[currentQuestion].answer+ '</h2><p class="lead">' +questions[currentQuestion].desc+ '</p><a class="close-reveal-modal" aria-label="Close">&#215;</a>';
@@ -126,10 +146,10 @@ function gameStatus() {
 function updateCounterGuitar() {
 	var answerGit = $("input:radio[name='option']:checked").val();
 	console.log(answerGit)
-	if (answerGit == undefined){
-		console.log("please make a selection for each question.");
-		alert("please make a selection for each question.");
-	} else
+	// if (answerGit == undefined){
+	// 	// console.log("please make a selection for each question.");
+	// 	$("#helpModal").foundation('reveal', 'open');
+	// } else
 	if (answerGit == questions[currentQuestion].guitarAnswer) {
 		correctGitCounter++;
 		console.log(correctGitCounter);		// ==== For testing  ====
@@ -140,9 +160,10 @@ function updateCounterGuitar() {
 function updateCounterArtist() {
 	var answerArt = $("input:radio[name='option2']:checked").val();
 	console.log(answerArt)
-	if (answerArt == undefined){
-		console.log("please make a selection")
-	} else
+	// if (answerArt == undefined){
+	// 	// console.log("please make a selection");
+	// 	$("#helpModal").foundation('reveal', 'open');
+	// } else
 	if (answerArt == questions[currentQuestion].artistAnswer) {
 		correctArtCounter++;
 		console.log(correctArtCounter);		// ==== For testing  ====
