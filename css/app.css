@@ -77,11 +77,15 @@ ul.center {
 	display: none;
 }
 
-/*#introMessage {
+#game_over {
 	display: none;
 }
 
-#submit_takeQuiz {
+/*#introMessage {
+	display: none;
+}*/
+
+/*#submit_takeQuiz {
 	display: none;
 }*/
 
@@ -99,7 +103,7 @@ ul.center {
 */
 
 #results p {
-	color: red;
+	color: #567;
 	font-weight: bold;
 }
 
@@ -112,6 +116,7 @@ ul.center {
 
 
 .footer p {
+	display: none;
 	font-size: 12px;
 }
 

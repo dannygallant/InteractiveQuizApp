@@ -7,7 +7,8 @@ $(document).ready(function() {
     	questionNum: 0,
         guitarAnswer: 0,
         artistAnswer: 3,
-        info: "The Fender Stratocaster is one of the world's most popular guitars. Eric Clapton transitioned from Gibson guitars to the Stratocaster in late 1969.",
+        answer: "Fender Stratocaster",
+        desc: "The Fender Stratocaster is one of the world's most popular guitars. Eric Clapton transitioned from Gibson guitars to the Stratocaster in late 1969.",
         },
         {
         guitarChoices: ["Gibson SG", "Fender Telecaster", "Gibson Les Paul", "Gretsch White Falcon", "PRS Core"],
@@ -16,7 +17,8 @@ $(document).ready(function() {
     	questionNum: 1,
         guitarAnswer: 2,
         artistAnswer: 1,
-        info: "The Gibson Les Paul is one of the most recognizable guitar in the world and is a favorite of countless guitarists, including Billy Gibbons, Slash and Warren Haynes.",
+        answer: "Gibson Les Paul",
+        desc: "The Gibson Les Paul is one of the most recognizable guitars in the world and is a favorite of countless guitarists, including Billy Gibbons, Slash and Warren Haynes.",
         },
 		{
         guitarChoices: ["Gibson ES-335", "Danelectro Shorthorn" ,"Fender Telecaster", "Fender Jaguar", "Gretsch White Falcon"],
@@ -25,7 +27,8 @@ $(document).ready(function() {
         questionNum: 2,
         guitarAnswer: 2,
         artistAnswer: 3,
-        info: "The Fender Telecaster was the world's first commercially available solid body, single-cutaway guitar. Muddy Waters, along with countless other greats, was an early adopter of the Tele.",
+        answer: "Fender Telecaster",
+        desc: "The Fender Telecaster was the world's first commercially available solid body, single-cutaway guitar. Muddy Waters, along with countless other greats, was an early adopter of the Tele.",
         },
 		{
         guitarChoices: ["Fender Mustang", "Gibson Hummingbird" ,"Ibanez ARZ", "PRS DGT", "Taylor 716e"],
@@ -34,7 +37,8 @@ $(document).ready(function() {
         questionNum: 3,
         guitarAnswer: 3,
         artistAnswer: 4,
-        info: "The DGT is from PRS' artist series and is spec'd by David Grissom's personal preference. Many consider PRS guitars to be a meeting point between a Strat and a Les Paul.",
+        answer: "PRS DGT",
+        desc: "The DGT is from PRS' artist series and is spec'd to David Grissom's personal preference. Many consider PRS guitars to be a meeting point between a Strat and a Les Paul.",
         },
 		{
         guitarChoices: ["Fender Mustang", "Gibson Hummingbird" ,"Ibanez ARZ", "PRS Core", "Taylor 716e"],
@@ -43,14 +47,14 @@ $(document).ready(function() {
         questionNum: 4,
         guitarAnswer: 1,
         artistAnswer: 3,
-        info: "Since it's introduction in 1960, the Gibson Hummingbird become a go-to acoustic for many artist, including John McLaughlin. It can be heard on countless recording spanning more than 50 years.",
+        answer: "Gibson Hummingbird",
+        desc: "Since it's introduction in 1960, the Gibson Hummingbird become a go-to acoustic for many artist, including John McLaughlin. It can be heard on countless recording spanning more than 50 years.",
         }]
 
 
  // document ready end bracket
 
   
-
 var currentQuestion = 0;
 var correctGitCounter = 0;
 var correctArtCounter = 0;
@@ -58,32 +62,32 @@ var correctArtCounter = 0;
 $("#takeQuiz").on("click", "#startButton", function () {
     $("#introMessage").css("display","none");
     $("#takeQuiz").css("display","none");
-    populateQuestionaire(currentQuestion);
+    populateQuestionaire();
     $("#questionContainer").css("display", "inline");
-    $("#submit_answer").css("display", "inline")
+    $("#submit_answer").css("display", "inline");
     $("#results").css("display", "inline")
 });
 
 $("#submit_answer").on("click", "#submitButton", function () {
     updateCounterGuitar();
     updateCounterArtist();
-    displayInfo();
     $("#submit_answer").css("display","none");
+    displayInfo();
+    updateResultsCounter();
     $("#next_question").css("display","inline");
-    $("#info").css("display","inline");
-
-    // nextQuestion();
+    // $("#info").css("display","inline");
 });
 
 
 $("#next_question").on("click", "#nextButton", function () {
-	$("#next_question").css("display","none");
-	$("#info").css("display","none");
-	currentQuestion++;
-	populateQuestionaire(currentQuestion);
-// advance to the next question values in the array
-	updateResultsCounter();
-	$("#submit_answer").css("display","inline");
+		$("#next_question").css("display","none");
+		$("#info").css("display","none");
+// need a test to end game once at end of array
+		// ===  Trying this inside gameStatus
+		// currentQuestion++;
+		// populateQuestionaire();
+		// $("#submit_answer").css("display","inline") 
+		gameStatus();	
 });
 
 function populateQuestionaire() {
@@ -91,17 +95,40 @@ function populateQuestionaire() {
 	$("#questionContainer").html(newQuestion);
 }
 
+// =====  TEMPORARILY disabled to see if I can bring up answers in a modal  =====
+// function displayInfo() {
+// 	var newInfo = '<p>' +questions[currentQuestion].desc+ '</p>';
+// 	$("#info").html(newInfo);
+// 	$("#info").css("display", "inline");
+// }
+
+// ====  Display answer in a modal  ====
+
 function displayInfo() {
-	var newInfo = '<p>' +questions[currentQuestion].info+ '</p>';
-	$("#info").html(newInfo);
-	$("#info").css("display", "inline");
+	var newInfo2 = '<h2 id="modalTitle">' +questions[currentQuestion].answer+ '</h2><p class="lead">' +questions[currentQuestion].desc+ '</p><a class="close-reveal-modal" aria-label="Close">&#215;</a>';
+	$("#infoModal").html(newInfo2);
+	$("#infoModal").foundation('reveal', 'open');
+}
+
+
+function gameStatus() {
+	if (currentQuestion < questions.length) {
+		currentQuestion++;
+		populateQuestionaire();
+		$("#submit_answer").css("display","inline"); 
+	} else {
+		$("#questionContainer").css("display", "none");
+		gameOverMessage();
+	}
+
 }
 
 function updateCounterGuitar() {
 	var answerGit = $("input:radio[name='option']:checked").val();
 	console.log(answerGit)
 	if (answerGit == undefined){
-		console.log("please make a selection")
+		console.log("please make a selection for each question.");
+		alert("please make a selection for each question.");
 	} else
 	if (answerGit == questions[currentQuestion].guitarAnswer) {
 		correctGitCounter++;
@@ -109,7 +136,6 @@ function updateCounterGuitar() {
 	} else {console.log(correctGitCounter);}   // ==== For testing  ====
 
     }
-
 
 function updateCounterArtist() {
 	var answerArt = $("input:radio[name='option2']:checked").val();
@@ -125,59 +151,23 @@ function updateCounterArtist() {
     }
 
 // function populateInfo() {
-// 	var newInfo = '<p>' +questions[currentQuestion].info+ '</p>';
+// 	var newInfo = '<p>' +questions[currentQuestion].desc+ '</p>';
 // 	$("#info").html(newInfo);
 
 // }
 
 function updateResultsCounter() {
-	var score = '<center><p>' +"Correct Guitars:"+correctGitCounter+ '</p></center><center><p> ' +"Correct Artist:" +correctArtCounter+ '</p></center>';
+	var score = '<center><p>' +"Correct Guitars: "+correctGitCounter+ '<br>' +"Correct Artist: " +correctArtCounter+ '</p></center>';
 	$("#results").html(score);
 }
 
-// =====  used for testing. Don't need to loop through and use if statement with radios  =====
-// function updateCounterGuitar() {
-// 	$('input[type=radio]').each(function () {
-//         if (this.checked) {
-//             console.log($(this).val()); 
-//         }
-// });
-// }
- 
+function gameOverMessage() {
+	// var gameOver = '<div class="small-2 large-4 columns"><center><img class="th" src="img/strat_border_smaller.gif"></center></div><div class="small-4 large-4 columns"><center><H4>Thanks for playing!</H4></center></div><div class="small-6 large-4 columns"><center><img class="th" src="img/les_paul_border_smaller.gif"></center></div>';
+	// $("#introMessage").html(gameOver);
+	// $("#introMessage").css("display", "inline");
 
-//  ======== Probably will use radio buttons for the artist questions as well  ========
-
-// function updateCounterArtist() {
-// 	$('input[type=checkbox]').each(function () {
-//         if (this.checked) {
-//             console.log($(this).val()); 
-//         }
-// 	})
-// };
-
-
-
-	
-
-
-
-
-
-
-// function updateCounter() {
-// 	var answer = $("input[type='checkbox']:checked").val();
-//         if (answer == questions[currentQuestion].guitarAnswer) {
-//             correctAnswers++;    
-//         }
-// }
-
-// function updateCounterArt() {
-
-// 	var answer = $("input[type='checkbox']:checked").val();
-//         if (answer == questions[currentQuestion].artistAnswer) {
-//             correctAnswers++;    
-//         }
-// }
+	$("#game_over").css("display", "inline");
+}
 
 
 });

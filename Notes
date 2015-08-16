@@ -1,3 +1,29 @@
 Notes:
 
 - Consider using radio buttons for artist answers too. Try renaming the name & class in the input type. Originally used checkboxes for the artist answers & radios for the guitar answers.
+
+- Can figure out how to end game. Once the last questions is answered, the app needs to tell the user it's game over and provide an option to start over.
+
+- Swap button colors
+
+
+
+
+
+
+$("#next_question").on("click", "#nextButton", function () {
+	if (currentQuestion < questions.length) {
+	$("#next_question").css("display","none");
+	$("#info").css("display","none");
+	currentQuestion++;
+	populateQuestionaire(currentQuestion);
+// advance to the next question values in the array
+	updateResultsCounter();
+	$("#submit_answer").css("display","inline"); 
+	} else {
+		$("#next_question").css("display","none");
+		$("#info").css("display","none");
+		alert("Congratulations on finishing the quiz!");
+	}
+
+});
