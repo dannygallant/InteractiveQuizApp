@@ -7,7 +7,11 @@ DONE - Consider using radio buttons for artist answers too. Try renaming the nam
 - Swap button colors (light blue to matching nav bar on hover)
 
 - Try combining updateCounterGuitar() & updateCounterArtist() into one function? Having trouble trigger just the help modal when missing radio buttons by itself (the answer modal comes up overtop of it). - OR - write a test function to ensure that both questions have radio selections. The test function could test both conditions and, if both are selected, it would call the updateCounterGuitar() & updateCounterArtist() functions.
-    -> Test function seems to be the way to go.
+   **** Test function seems to be the way to go.
+
+- Try modifying gameStatus() so that it works more like the testRadios() function.
+	-> Currently throws this error "Uncaught TypeError: Cannot read property 'guitarChoices' of undefined", but works if you click a 2nd time.
+	**** Got it working, but would be better if closing the modal called the test and stopped the game.
 
 
 

@@ -48,7 +48,7 @@ $(document).ready(function() {
         guitarAnswer: 1,
         artistAnswer: 3,
         answer: "Gibson Hummingbird",
-        desc: "Since it's introduction in 1960, the Gibson Hummingbird become a go-to acoustic for many artist, including John McLaughlin. It can be heard on countless recording spanning more than 50 years.",
+        desc: "Since it's introduction in 1960, the Gibson Hummingbird has been a go-to acoustic for many artist, including John McLaughlin. It can be heard on countless recordings spanning more than 50 years.",
         }]
 
 
@@ -76,20 +76,42 @@ $("#submit_answer").on("click", "#submitButton", function () {
     	displayInfo();
     	updateResultsCounter();
     	$("#next_question").css("display","inline");
+    	console.log("Length of array: ", questions.length);
     	// $("#info").css("display","inline");
     }
 });
 
 
 $("#next_question").on("click", "#nextButton", function () {
+	if (gameStatus()) {
 		$("#next_question").css("display","none");
-		$("#info").css("display","none");
+		currentQuestion++;
+		populateQuestionaire();
+		$("#submit_answer").css("display","inline"); 
+	} else {
+		$("#next_question").css("display","none");
+		$("#questionContainer").css("display", "none");
+		gameOverMessage();
+	}
+
+
+	// if (currentQuestion < questions.length) {
+	// 	$("#next_question").css("display","none");
+	// 	$("#info").css("display","none");
+	// } else {
+
+	// 	gameOverMessage();
+	// }
+
+
+
 // need a test to end game once at end of array
 		// ===  Trying this inside gameStatus
 		// currentQuestion++;
 		// populateQuestionaire();
 		// $("#submit_answer").css("display","inline") 
-		gameStatus();	
+
+		// gameStatus();	
 });
 
 //  =====  Might be testing that both questions have answers  =====
@@ -97,8 +119,8 @@ $("#next_question").on("click", "#nextButton", function () {
 function testRadios() {
 	var answerGit = $("input:radio[name='option']:checked").val();	
 	var answerArt = $("input:radio[name='option2']:checked").val();
-	console.log(answerGit);
-	console.log(answerArt);
+	console.log("GIT: ", answerGit);
+	console.log("ART: ", answerArt);
 
 	if (answerGit == undefined || answerArt == undefined){
 		// console.log("please make a selection for each question.");
@@ -132,16 +154,47 @@ function displayInfo() {
 
 
 function gameStatus() {
-	if (currentQuestion < questions.length) {
-		currentQuestion++;
-		populateQuestionaire();
-		$("#submit_answer").css("display","inline"); 
-	} else {
-		$("#questionContainer").css("display", "none");
-		gameOverMessage();
+	if (currentQuestion < (questions.length)-1) {
+		return true;
 	}
-
 }
+
+
+
+
+// =======  THIS IS A FLIPPED VERSION OF THE ORIGINAL. STILL THROWS THE ERROR, BUT WORKS IF CLICKED A 2ND TIME  =======
+	// if (currentQuestion >= questions.length) {
+	// 	$("#questionContainer").css("display", "none");
+	// 	$("#next_question").css("display","none");
+	// 	gameOverMessage();
+	// 	console.log("DONE!");
+	// } else {
+	// 	currentQuestion++;
+	// 	console.log("Current Question: ", currentQuestion);
+	// 	populateQuestionaire();
+	// 	$("#submit_answer").css("display","inline"); 
+	// 	$("#next_question").css("display","none");
+	// }
+		
+	// }
+
+
+
+// ========  THIS IS THE ORINAL CODE FOR THE gameStatus function. THE ELSE PART OF THE CLAUSE DOES NOT WORK    ==========
+	// if (currentQuestion < questions.length) {
+	// 	currentQuestion++;
+	// 	console.log("Current Question: ", currentQuestion);
+	// 	populateQuestionaire();
+	// 	$("#submit_answer").css("display","inline"); 
+	// 	$("#next_question").css("display","none");
+	// } else {
+	// 	$("#questionContainer").css("display", "none");
+	// 	$("#next_question").css("display","none");
+	// 	gameOverMessage();
+	// 	console.log("DONE!");
+	// }
+// =========  DO NOT DELETE UNTIL WE FINISHED TESTING OTHER OPTIONS   =========
+
 
 function updateCounterGuitar() {
 	var answerGit = $("input:radio[name='option']:checked").val();
@@ -183,10 +236,9 @@ function updateResultsCounter() {
 }
 
 function gameOverMessage() {
-	// var gameOver = '<div class="small-2 large-4 columns"><center><img class="th" src="img/strat_border_smaller.gif"></center></div><div class="small-4 large-4 columns"><center><H4>Thanks for playing!</H4></center></div><div class="small-6 large-4 columns"><center><img class="th" src="img/les_paul_border_smaller.gif"></center></div>';
-	// $("#introMessage").html(gameOver);
-	// $("#introMessage").css("display", "inline");
-
+	var gameOver = '<div class="small-2 large-4 columns"><center><img class="th" src="img/strat_border_smaller.gif"></center></div><div class="small-4 large-4 columns"><center><H4>Thanks for playing!</H4></center></div><div class="small-6 large-4 columns"><center><img class="th" src="img/les_paul_border_smaller.gif"></center></div>';
+	$("#introMessage").html(gameOver);
+	$("#introMessage").css("display", "inline");
 	$("#game_over").css("display", "inline");
 }
 
