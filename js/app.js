@@ -18,7 +18,7 @@ $(document).ready(function() {
         guitarAnswer: 2,
         artistAnswer: 1,
         answer: "Gibson Les Paul",
-        desc: "The Gibson Les Paul is one of the most recognizable guitars in the world and is a favorite of countless guitarists, including Billy Gibbons, Slash and Warren Haynes.",
+        desc: "The Gibson Les Paul is one of the most recognizable guitars in the world and is a favorite of countless guitarists in all genres, including Billy Gibbons, Slash and Warren Haynes.",
         },
 		{
         guitarChoices: ["Gibson ES-335", "Danelectro Shorthorn" ,"Fender Telecaster", "Fender Jaguar", "Gretsch White Falcon"],
@@ -38,7 +38,7 @@ $(document).ready(function() {
         guitarAnswer: 3,
         artistAnswer: 4,
         answer: "PRS DGT",
-        desc: "The DGT is from PRS' artist series and is spec'd to David Grissom's personal preference. Many consider PRS guitars to be a meeting point between a Strat and a Les Paul.",
+        desc: "The DGT is from PRS' artist series and is spec'd to David Grissom's personal preferences. Many consider PRS guitars to be a meeting point between a Strat and a Les Paul.",
         },
 		{
         guitarChoices: ["Fender Mustang", "Gibson Hummingbird" ,"Ibanez ARZ", "PRS Core", "Taylor 716e"],
@@ -48,7 +48,7 @@ $(document).ready(function() {
         guitarAnswer: 1,
         artistAnswer: 3,
         answer: "Gibson Hummingbird",
-        desc: "Since it's introduction in 1960, the Gibson Hummingbird has been a go-to acoustic for many artist, including John McLaughlin. It can be heard on countless recordings spanning more than 50 years.",
+        desc: "Since it's introduction in 1960, the Gibson Hummingbird has been a go-to acoustic for many artists, including John McLaughlin. It can be heard on countless recordings spanning more than 50 years.",
         }]
 
 
@@ -125,9 +125,13 @@ $(document).on('closed.fndtn.reveal', '[data-reveal]', function () {
   }
 });
 
+$("#restartGame").click(function() {
+    location.reload();
+});
 
-
-
+$("#restartGame2").click(function() {
+    location.reload();
+});
 
 
 //  =====  Might be testing that both questions have answers  =====
@@ -262,9 +266,13 @@ function updateResultsCounter() {
 }
 
 function gameOverMessage() {
-	var gameOver = '<div class="small-2 large-4 columns"><center><img class="th" src="img/strat_border_smaller.gif"></center></div><div class="small-4 large-4 columns"><center><H4>Thanks for playing!</H4></center></div><div class="small-6 large-4 columns"><center><img class="th" src="img/les_paul_border_smaller.gif"></center></div>';
+	var gameOver = '<div class="small-2 large-4 columns"><center><img class="th" src="img/strat_border_smaller.gif"></center></div><div class="small-4 large-4 columns"><center><H3>Thanks for playing!</H3><br><h4>Your score was:</h4><br><p>' +"Guitars: "+correctGitCounter+ '<br>' +"Artist: " +correctArtCounter+ '</p></center></div><div class="small-6 large-4 columns"><center><img class="th" src="img/les_paul_border_smaller.gif"></center></div>';
 	$("#introMessage").html(gameOver);
 	$("#introMessage").css("display", "inline");
+	$("#introMessage p").css("color", "#567");
+	$("#introMessage p").css("font-weight", "bold");
+	$("#game_over").css("display", "inline");
+	$("#results").css("display", "none");
 	// $("#game_over").css("display", "inline");
 }
 
