@@ -12,7 +12,7 @@ $(document).ready(function() {
         },
         {
         guitarChoices: ["Gibson SG", "Fender Telecaster", "Gibson Les Paul", "Gretsch White Falcon", "PRS Core"],
-        artistChoices: ["Stevie Ray Vaughan", "Billy Gibbons", "Jeff Beck", "Howlin' Wolf", "Paul Stanley"],
+        artistChoices: ["Stevie Ray Vaughan", "Billy Gibbons", "Jeff Beck", "Howlin' Wolf", "Eric Johnson"],
         pic: "img/les_paul_border_smaller.gif",
     	questionNum: 1,
         guitarAnswer: 2,
@@ -75,24 +75,24 @@ $("#submit_answer").on("click", "#submitButton", function () {
     	$("#submit_answer").css("display","none");
     	displayInfo();
     	updateResultsCounter();
-    	$("#next_question").css("display","inline");
+    	// $("#next_question").css("display","inline");
     	console.log("Length of array: ", questions.length);
     	// $("#info").css("display","inline");
     }
 });
 
 
-$("#next_question").on("click", "#nextButton", function () {
-	if (gameStatus()) {
-		$("#next_question").css("display","none");
-		currentQuestion++;
-		populateQuestionaire();
-		$("#submit_answer").css("display","inline"); 
-	} else {
-		$("#next_question").css("display","none");
-		$("#questionContainer").css("display", "none");
-		gameOverMessage();
-	}
+// $("#next_question").on("click", "#nextButton", function () {
+// 	if (gameStatus()) {
+// 		$("#next_question").css("display","none");
+// 		currentQuestion++;
+// 		populateQuestionaire();
+// 		$("#submit_answer").css("display","inline"); 
+// 	} else {
+// 		$("#next_question").css("display","none");
+// 		$("#questionContainer").css("display", "none");
+// 		gameOverMessage();
+// 	}
 
 
 	// if (currentQuestion < questions.length) {
@@ -112,7 +112,23 @@ $("#next_question").on("click", "#nextButton", function () {
 		// $("#submit_answer").css("display","inline") 
 
 		// gameStatus();	
+
+// ******   next_question closing  *****
+// });  
+
+
+$(document).on('closed.fndtn.reveal', '[data-reveal]', function () {  
+  var modal = $(this);
+  if (modal.attr('id') == 'infoModal') {
+	nextQuestion();
+    // alert("Can you see this?");
+  }
 });
+
+
+
+
+
 
 //  =====  Might be testing that both questions have answers  =====
 
@@ -159,8 +175,18 @@ function gameStatus() {
 	}
 }
 
-
-
+function nextQuestion() {
+	if (gameStatus()) {
+		// $("#next_question").css("display","none");
+		currentQuestion++;
+		populateQuestionaire();
+		$("#submit_answer").css("display","inline"); 
+	} else {
+		// $("#next_question").css("display","none");
+		$("#questionContainer").css("display", "none");
+		gameOverMessage();
+	}
+}
 
 // =======  THIS IS A FLIPPED VERSION OF THE ORIGINAL. STILL THROWS THE ERROR, BUT WORKS IF CLICKED A 2ND TIME  =======
 	// if (currentQuestion >= questions.length) {
@@ -239,11 +265,11 @@ function gameOverMessage() {
 	var gameOver = '<div class="small-2 large-4 columns"><center><img class="th" src="img/strat_border_smaller.gif"></center></div><div class="small-4 large-4 columns"><center><H4>Thanks for playing!</H4></center></div><div class="small-6 large-4 columns"><center><img class="th" src="img/les_paul_border_smaller.gif"></center></div>';
 	$("#introMessage").html(gameOver);
 	$("#introMessage").css("display", "inline");
-	$("#game_over").css("display", "inline");
+	// $("#game_over").css("display", "inline");
 }
 
+}); 
 
-});
 
 
 

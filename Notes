@@ -12,7 +12,7 @@ DONE - Consider using radio buttons for artist answers too. Try renaming the nam
 - Try modifying gameStatus() so that it works more like the testRadios() function.
 	-> Currently throws this error "Uncaught TypeError: Cannot read property 'guitarChoices' of undefined", but works if you click a 2nd time.
 	**** Got it working, but would be better if closing the modal called the test and stopped the game.
-
+      http://foundation.zurb.com/forum/posts/2473-documentonclose-data-reveal
 
 
 
