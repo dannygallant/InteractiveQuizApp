@@ -64,8 +64,8 @@ $("#takeQuiz").on("click", "#startButton", function () {
     $("#takeQuiz").css("display","none");
     populateQuestionaire();
     $("#questionContainer").css("display", "inline");
-    $("#submit_answer").css("display", "inline");
-    $("#results").css("display", "inline")
+    $("#results").css("display", "inline");
+    $("#submit_answer").css("display", "inline")
 });
 
 $("#submit_answer").on("click", "#submitButton", function () {
@@ -153,7 +153,7 @@ function testRadios() {
 
 
 function populateQuestionaire() {
-	var newQuestion = '<li></li><li><span class="question"><h4>Which guitar is this?</h4></span><br><div id="answerChoicesGit"><input type="radio" name="option" class="option" value="0"><span class="answer"> ' +questions[currentQuestion].guitarChoices[0]+ '</span><br><input type="radio" name="option" class="option" value="1"><span class="answer"> ' +questions[currentQuestion].guitarChoices[1]+ '</span><br><input type="radio" name="option" class="option" value="2"><span class="answer"> ' +questions[currentQuestion].guitarChoices[2]+ '</span><br><input type="radio" name="option" class="option" value="3"><span class="answer"> ' +questions[currentQuestion].guitarChoices[3]+ '</span><br><input type="radio" name="option" class="option" value="4"><span class="answer"> ' +questions[currentQuestion].guitarChoices[4]+ '</span><br></div></li><li><center><img class="th" src=" ' +questions[currentQuestion].pic+ ' "></center></li><li><span class="question"><h4>Who plays this guitar?</h4></span><br><div id="answerChoicesArt"><input type="radio" name="option2" class="option2" value="0"><span class="answer"> ' +questions[currentQuestion].artistChoices[0]+ '</span><br><input type="radio" name="option2" class="option2" value="1"><span class="answer"> ' +questions[currentQuestion].artistChoices[1]+ '</span><br><input type="radio" name="option2" class="option2" value="2"><span class="answer"> ' +questions[currentQuestion].artistChoices[2]+ '</span><br><input type="radio" name="option2" class="option2" value="3"><span class="answer"> ' +questions[currentQuestion].artistChoices[3]+ '</span><br><input type="radio" name="option2" class="option2" value="4"><span class="answer"> ' +questions[currentQuestion].artistChoices[4]+ '</span><br></div></li><li></li>';
+	var newQuestion = '<li></li><li><span class="question"><h4>Which guitar is this?</h4></span><br><div id="answerChoicesGit"><input type="radio" name="option" class="option" value="0"><span class="answer"> ' +questions[currentQuestion].guitarChoices[0]+ '</span><br><input type="radio" name="option" class="option" value="1"><span class="answer"> ' +questions[currentQuestion].guitarChoices[1]+ '</span><br><input type="radio" name="option" class="option" value="2"><span class="answer"> ' +questions[currentQuestion].guitarChoices[2]+ '</span><br><input type="radio" name="option" class="option" value="3"><span class="answer"> ' +questions[currentQuestion].guitarChoices[3]+ '</span><br><input type="radio" name="option" class="option" value="4"><span class="answer"> ' +questions[currentQuestion].guitarChoices[4]+ '</span><br></div></li><li><center><img class="th" src=" ' +questions[currentQuestion].pic+ ' "></center></li><li><span class="question"><h4>Who plays this guitar?</h4></span><br><div id="answerChoicesArt"><input type="radio" name="option2" class="option2" value="0"><span class="answer"> ' +questions[currentQuestion].artistChoices[0]+ '</span><br><input type="radio" name="option2" class="option2" value="1"><span class="answer"> ' +questions[currentQuestion].artistChoices[1]+ '</span><br><input type="radio" name="option2" class="option2" value="2"><span class="answer"> ' +questions[currentQuestion].artistChoices[2]+ '</span><br><input type="radio" name="option2" class="option2" value="3"><span class="answer"> ' +questions[currentQuestion].artistChoices[3]+ '</span><br><input type="radio" name="option2" class="option2" value="4"><span class="answer"> ' +questions[currentQuestion].artistChoices[4]+ '</span><br><br></div></li><li></li>';
 	$("#questionContainer").html(newQuestion);
 }
 
@@ -184,6 +184,10 @@ function nextQuestion() {
 		// $("#next_question").css("display","none");
 		currentQuestion++;
 		populateQuestionaire();
+		$("#artistResults p").css("color", "#567");
+		$("#artistResults p").css("font-weight", "bold");
+		$("#guitarResults p").css("color", "#567");
+		$("#guitarResults p").css("font-weight", "bold");
 		$("#submit_answer").css("display","inline"); 
 	} else {
 		// $("#next_question").css("display","none");
@@ -261,18 +265,23 @@ function updateCounterArtist() {
 // }
 
 function updateResultsCounter() {
-	var score = '<center><p>' +"Correct Guitars: "+correctGitCounter+ '<br>' +"Correct Artist: " +correctArtCounter+ '</p></center>';
-	$("#results").html(score);
+	var artistScore = '<p>' +"Correct Artist: " +correctArtCounter+ '</p>';
+	$("#artistResults").html(artistScore);
+	var guitarScore = '<p>' +"Correct Guitars: "+correctGitCounter+ '</p>';
+	$("#guitarResults").html(guitarScore);
 }
 
 function gameOverMessage() {
 	var gameOver = '<div class="small-2 large-4 columns"><center><img class="th" src="img/strat_border_smaller.gif"></center></div><div class="small-4 large-4 columns"><center><H3>Thanks for playing!</H3><br><h4>Your score was:</h4><br><p>' +"Guitars: "+correctGitCounter+ '<br>' +"Artist: " +correctArtCounter+ '</p></center></div><div class="small-6 large-4 columns"><center><img class="th" src="img/les_paul_border_smaller.gif"></center></div>';
+	var copyright = '<p>Brought to you by Danny Gallant. <br> &copy; 2015 D. Gallant. All rights reserved.</p>';
 	$("#introMessage").html(gameOver);
 	$("#introMessage").css("display", "inline");
 	$("#introMessage p").css("color", "#567");
 	$("#introMessage p").css("font-weight", "bold");
 	$("#game_over").css("display", "inline");
 	$("#results").css("display", "none");
+	$("#info").html(copyright);
+	$("#info").css("display", "inline");
 	// $("#game_over").css("display", "inline");
 }
 

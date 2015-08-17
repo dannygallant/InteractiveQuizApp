@@ -116,7 +116,7 @@ ul.center {
 
 
 .footer p {
-	display: none;
+	display: inline;
 	font-size: 12px;
 }
 
