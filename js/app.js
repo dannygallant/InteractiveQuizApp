@@ -50,8 +50,7 @@ $(document).ready(function() {
         answer: "Gibson Hummingbird",
         desc: "Since it's introduction in 1960, the Gibson Hummingbird has been a go-to acoustic for many artists, including John McLaughlin. It can be heard on countless recordings spanning more than 50 years."
         }]
-// });
- // document ready end bracket
+
 
 $(document).on('closed.fndtn.reveal', '[data-reveal]', function () {  
   var modal = $(this);
@@ -94,15 +93,14 @@ $("#restartGame2").click(function() {
 });
 
 
-//  =====  Test that both questions have selected answers  =====
-
+//  =====  Test that both questions have selected radio buttons  =====
 function testRadios() {
 	var answerGit = $("input:radio[name='option']:checked").val();	
 	var answerArt = $("input:radio[name='option2']:checked").val();
 	// console.log("GIT: ", answerGit);
 	// console.log("ART: ", answerArt);
 	if (answerGit == undefined || answerArt == undefined){
-		$("#helpModal").foundation('reveal', 'open');
+		$("#missingAnswerModal").foundation('reveal', 'open');
 	} else if (answerGit != undefined && answerArt != undefined) {
 		return true;
 	}

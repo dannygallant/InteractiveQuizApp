@@ -30,21 +30,30 @@
   </section>
 </nav>
 
- <!-- Help Modal -->
-      <div id="helpModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-      <h2 id="modalTitle">Guitar Quiz - Help.</h2>
-      <p class="lead">Each guitar has 2 questions that must be answered.</p>
-      <p>A short description of the guitar, as well as a few well known artists who typically play that instrument, will come up when you submit your answers.</p>
-      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-      </div>
+<!-- Help Modal -->
+<div id="helpModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">Guitar Quiz - Help.</h2>
+    <p class="lead">Each guitar has 2 questions that must be answered.</p>
+    <p>A short description of the guitar, as well as a few well known artists who typically play that instrument, will come up when you submit your answers. Closing the information window, either by clicking on the X in the top right corner or anywhere outside the information window, will advance the quiz to the next question.</p>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
     
- <!--  Answer info Modal. Populated with jQuery -->
-      <div id="infoModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-      <h2 id="modalTitle"></h2>
-      <p class="lead"></p>
-      <p></p>
-      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-      </div>
+<!-- Missing answer modal -->
+<div id="missingAnswerModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">Missing Answer</h2>
+    <p class="lead">Please answer both questions.</p>
+    <p>Each guitar has 2 questions that must be answered; the guitar's name and an artist known for playing that instrument.</p>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+
+<!--  Answer info Modal. Populated with jQuery -->
+<div id="infoModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle"></h2>
+    <p class="lead"></p>
+    <p></p>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
 
 <br><br>
 
@@ -62,6 +71,8 @@
   </div>    
 </div>
 
+
+<!-- Populated by jQuery function populateQuestionaire() -->
 <ul class="small-block-grid-5" id="questionContainer">	
 </ul>
 

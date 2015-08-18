@@ -1,3 +1,5 @@
+/* =========  Foundation CSS overides  ========= */
+
 body {
   background: #fff;
   /*background-image: url("../img/Background_small.png");*/
@@ -28,6 +30,10 @@ body {
 	background-color: #008CBA;
 }
 
+button:hover, .button:hover {
+	background-color: black;
+}
+
 /* ========= Nav bar styling ========= */
 
 .top-bar {
@@ -55,8 +61,8 @@ ul.center {
   max-width: 4rem;
 }
 
-/* ========= End of Nav bar styling ========= */
 
+/* =========  App-specific styling  ========= */
 #questionContainer {
 	display: none;
 }
@@ -85,24 +91,9 @@ ul.center {
 	display: none;
 }
 
-/*#introMessage {
-	display: none;
-}*/
-
-/*#submit_takeQuiz {
-	display: none;
-}*/
-
-
 .button {
 	background-color: #567;
 }
-
-/*#results {
-	background-color: #567;
-	border: 5px solid #567;
-}
-*/
 
 #results p {
 	color: #567;
@@ -113,114 +104,12 @@ ul.center {
 	font-size: 7;
 }
 
-
-/*
-
-#info {
-	display: ;
-}*/
-
-
-
-
-
 .footer p {
 	display: inline;
 	font-size: 12px;
 }
 
-/*  ================  Will most likely delete everythin below and use Foundation CSS  ==============
-
-body {	
-	font-family: "Times New Roman", Times, serif;
-	background-image: url("../img/Background_small.png");
-	background-repeat: no-repeat;
-	background-position: top center;
-	min-height: 650px;
-	background-size: 100% 100%;
+#missingAnswerModal h2 {
+	color: red;
 }
 
-.container {
-	background-image: url("../img/test_image.jpg");
-	border-radius: 10px;
-  	border: 3px solid #BADA55;
-	width: 800px;
-	height: 650px;
-	margin: 0 auto;
-}
-
-.title {
-	display: inline-block;
-	width: 800px;
-	height: 20px;
-	margin: 0 auto;
-	text-align: center;
-	
-}
-
-.title p {
-	font-weight: 30;
-	font-size: 40;
-
-}
-
-.input {
-	max-width: 500px;
-	height: 100px;
-	margin: 0 auto;
-	border-radius: 2px;
-	text-align: center;
-}
-
-input[type="text"] {
-    font-size:45px;
-}
-
-h1 {
-	margin-top: 3px;
-	padding-top: 20px;
-	font-size: 48px;
-	margin-bottom: 10px;
-}
-
-#item {
-	margin-top: 8px;
-	height: 20px;
-	width: 200px;
-	vertical-align: center;
-
-}
-
-h2 {
-	font-size: 22px;
-	margin: 4px 0 0 0;
-}
-
-#list {
-	margin-top: 0;
-	padding: 5px 5px 5px 15px;
-	text-align: left;
-	list-style: none;
-}
-
-#list li {
-	font-size: 1rem;
-	font-weight: bold;
-	cursor: pointer;
-}
-
-span {
-	margin: 0;
-}
-
-
-
-.delete {
-	float: right;
-	margin-top: 3px;
-	display: block;
-	height: 1.2rem;
-	width: 1.2rem;
-}
-
-*/
