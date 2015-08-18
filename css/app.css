@@ -77,6 +77,10 @@ ul.center {
 	display: none;
 }
 
+#copyright {
+	display: none;
+}
+
 #game_over {
 	display: none;
 }
@@ -88,8 +92,6 @@ ul.center {
 /*#submit_takeQuiz {
 	display: none;
 }*/
-
-
 
 
 .button {
@@ -107,9 +109,16 @@ ul.center {
 	font-weight: bold;
 }
 
+#copyright p {
+	font-size: 7;
+}
+
+
+/*
+
 #info {
 	display: ;
-}
+}*/
 
 
 

@@ -19,8 +19,6 @@
     <li class="name">
       <h1><a href="#">Guitar Quiz</a></h1>
     </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <!-- <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li> -->
   </ul>
 
   <section class="top-bar-section">
@@ -40,7 +38,7 @@
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
       </div>
     
- <!--  Answer info Modal. Populate with jQuery -->
+ <!--  Answer info Modal. Populated with jQuery -->
       <div id="infoModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
       <h2 id="modalTitle"></h2>
       <p class="lead"></p>
@@ -65,32 +63,6 @@
 </div>
 
 <ul class="small-block-grid-5" id="questionContainer">	
-  <!-- <li></li>
-  <li>
-	<span class="question"><h4>Which guitar is this?</h4></span><br>
-		<div id="answerChoicesGit">
-			<input type="radio" name="option" class="option" value="0"><span class="answer"> Fender Stratocaster</span><br>
-			<input type="radio" name="option" class="option" value="1"><span class="answer"> Gibson Les Paul</span><br>
-			<input type="radio" name="option" class="option" value="2"><span class="answer"> Gibson ES-335</span><br>
-			<input type="radio" name="option" class="option" value="3"><span class="answer"> Gretsch White Falcon</span><br>
-			<input type="radio" name="option" class="option" value="4"><span class="answer"> Fender Jazzmaster</span><br>
-		</div>
-  </li>
- 
-  <li><center><img class="th" src="img/strat_border_smaller.gif"></center></li>
-  
-  <li>
-  	<span class="question"><h4>Who plays this guitar?</h4></span><br>
-			<div id="answerChoicesArt">
-				<input type="radio" name="option2" class="option2" value="0"><span class="answer"> Eric Clapton</span><br>
-				<input type="radio" name="option2" class="option2" value="1"><span class="answer"> Carlos Santana</span><br>
-				<input type="radio" name="option2" class="option2" value="2"><span class="answer"> Steve Vai</span><br>
-				<input type="radio" name="option2" class="option2" value="3"><span class="answer"> Frank Zappa</span><br>
-				<input type="radio" name="option2" class="option2" value="4"><span class="answer"> None of the above</span><br>
-			</div>
-
-  </li>
-  <li></li> -->
 </ul>
 
 <ul class="small-block-grid-5" id="results">  
@@ -107,22 +79,6 @@
 </ul>
 
 
-
-<!-- <br> -->
-
-<!-- <div class="row" id="results">
-    <div class="small-6 columns text-center" id="guitarResults">
-      <p>Correct Artist: 0</p>
-    </div> 
-    div class="small-4 columns" id="empty">
-      <p></p>
-    </div> 
-    <div class="small-6 columns text-center" id="artistResults">
-      <p>Correct Guitar: 0</p>
-  </div> 
-
-</div> -->
-
 <div class="row" id="submit_answer">
   
   <div class="small-12 columns text-center">
@@ -130,11 +86,6 @@
   </div> 
 </div>
 
-<!-- <div class="row" id="next_question">
-  <div class="small-12 large-12 columns text-center">
-    <input type="button" class="button small round" id="nextButton" value="Next Question">
-  </div>  
-</div> -->
 
 <div class="row" id="game_over">
   <div class="small-12 large-12 columns text-center">
@@ -142,36 +93,21 @@
   </div>  
 </div>
 
+<br><br><br><br><br>
 
-<!-- <div class="row"> 
-  <div class="small-4 columns">
-  </div>
-  <div class="small-4 columns">
-  </div>
-  <div class="small-4 columns" id="results"> -->
-       <!-- small-centered -->
-  	<!-- <center><p>Correct Guitars: 0</p></center>
-    <center><p>Correct Artist: 0</p></center> -->
-  	<!-- <center><p>Completed: 0%</p></center> -->
-<!--   </div>  
+<div class="row" id="copyright">
+  <div class="small-12 large-12 columns text-center">
+    <p>Brought to you by Danny Gallant. <br> &copy;2015 D. Gallant. All rights reserved.</p>
+  </div>  
 </div>
- -->
-
-<!-- <div id="footer">
-	<p>&copy; 2015 - Danny Gallant. All rights reserved</p>
-</div> -->
-
 
 
 <script src="js/vendor/jquery.js" type="text/javascript"></script>
-<!-- <script src="js/sticky-footer.js"></script>   -->
 <script src="js/app.js"></script> 
 <script src="js/vendor/modernizr.js"></script>
 <script src="js/foundation/foundation.js"></script>
 <script src="js/foundation/foundation.reveal.js"></script>
 
-<!-- reveal is already part of foundation.js -->
-<!-- <script src="js/foundation/foundation.reveal.js"></script> --> 
 <script type="text/javascript"> 
     $(document).foundation();
 </script>
